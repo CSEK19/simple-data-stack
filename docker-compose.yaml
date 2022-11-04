@@ -1,0 +1,81 @@
+version: '3.7'
+
+services:
+    hadoop:
+        platform: linux/x86_64  # Apple silicon
+        container_name: hadoop
+        build:
+            context: ./hadoop
+        restart: always
+        ports:
+            - "8088:8088"
+            - "50070:50070"
+            - "50075:50075"
+        volumes:
+            - ./sample:/var/log/sample
+            - ./configs/hosts:/etc/hosts
+            # - hadoop-node:/root/hdfs/
+        networks:
+            hadoop:
+                ipv4_address: 192.168.1.23
+
+    jupyterlab:
+        container_name: jupyterlab
+        build:
+            context: ./jupyter
+        ports:
+            - 8888:8888
+        volumes: 
+            - ./scripts:/opt/workspace
+        networks: 
+            - hadoop
+    
+    spark-master:
+        build:
+            context: ./spark/master
+        container_name: spark-master
+        ports:
+            - 8080:8080
+            - 7077:7077
+        networks: 
+            - hadoop
+    
+    spark-worker-1:
+        build:
+            context: ./spark/worker
+        container_name: spark-worker-1
+        environment:
+            - SPARK_WORKER_CORES=1
+            - SPARK_WORKER_MEMORY=512m
+        ports:
+            - 8081:8081
+        depends_on:
+            - spark-master
+        networks: 
+            - hadoop
+        
+    db:
+        platform: linux/x86_64  # Apple silicon
+        image: mysql:8.0.22
+        container_name: db
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        network_mode: 'host'
+        volumes: 
+            - mysql:/var/lib/mysql
+        env_file: 
+            - .env.example
+
+# Volumes
+volumes: 
+    mysql:
+    # hadoop-node:
+
+# Network
+networks:
+    hadoop:
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.0.0/16
+                  gateway: 192.168.0.1
