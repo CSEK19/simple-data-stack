@@ -1,8 +1,8 @@
 FROM openjdk:8-jre-slim
 
 ARG shared_workspace=/opt/workspace
-ARG spark_version=3.0.0
-ARG hadoop_version=2.7
+ARG spark_version=3.3.1
+ARG hadoop_version=3
 
 RUN mkdir -p ${shared_workspace} && \
     apt-get update -y && \
