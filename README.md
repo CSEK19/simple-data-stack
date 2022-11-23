@@ -44,6 +44,8 @@ sh scripts/create-table.sh
 ```
 
 # PySpark
+Mounted `opt/workspace` to `./scripts` folder.
+
 To interact with Spark:
 - Open browser at [http://localhost:8888](http://localhost:8888) or
 - Run any `*.ipynb` in `./scripts` folder.
