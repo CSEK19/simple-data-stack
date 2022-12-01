@@ -56,6 +56,10 @@ Spark Web UI:
 - [Spark Worker 1 - http://localhost:8081](http://localhost:8081)
 - [Spark Worker 2 - http://localhost:8082](http://localhost:8082)
 
+Hadoop Web UI:
+- [Hadoop UI - http://localhost:50070](http://localhost:50070)
+
+
 # Note
 This repo has been successfully run on Apple silicon M1. If you want to run it on another operating system without any problems, please modify the `docker-compose.yaml` file.
 <!-- 
