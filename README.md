@@ -51,9 +51,9 @@ To interact with Spark:
 - Run any `*.ipynb` in `./scripts` folder.
 
 Spark Web UI:
-- [Spark Master](http://localhost:8080)
-- [Spark Worker 1](http://localhost:8081)
-- [Spark Worker 2](http://localhost:8082)
+- [Spark Master - http://localhost:8080](http://localhost:8080)
+- [Spark Worker 1 - http://localhost:8081](http://localhost:8081)
+- [Spark Worker 2 - http://localhost:8082](http://localhost:8082)
 
 # Note
 This repo has been successfully run on Apple silicon M1. If you want to run it on another operating system without any problems, please modify the `docker-compose.yaml` file.
