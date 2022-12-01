@@ -38,7 +38,7 @@ docker exec -it hadoop bash
 hadoop fs -ls /test
 ```
 
-5. Create a table in MySQL (if):
+5. Create a table in MySQL (if necessary):
 ```
 sh scripts/create-table.sh
 ```
