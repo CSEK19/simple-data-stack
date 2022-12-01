@@ -51,6 +51,7 @@ To interact with Spark:
 - Run any `*.ipynb` in `./scripts` folder.
 
 Spark Web UI:
+- [Spark UI - http://localhost:4040](http://localhost:4040)
 - [Spark Master - http://localhost:8080](http://localhost:8080)
 - [Spark Worker 1 - http://localhost:8081](http://localhost:8081)
 - [Spark Worker 2 - http://localhost:8082](http://localhost:8082)
