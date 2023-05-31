@@ -1,6 +1,7 @@
 # data-stack
 
-Set up a data stack using Apache Spark standalone cluster with Docker containers.
+Set up a data stack using Apache Spark standalone cluster with Docker containers.\
+Extension for assignment of Big Data Analytics and Business Intelligence (CO4033). 
 
 # Getting Started
 
